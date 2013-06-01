@@ -30,18 +30,35 @@ class PhotoController {
 		def date = new Date()
 		//def fDate = date.format('yyyy-MM-dd')
 		def hashTitle = params.getAt('title').hashCode()
-		def photoInstance = new Photo(name:"${hashTitle}.png", title:params.getAt('title'), dateUploaded:date)
-        if (!photoInstance.save(flush: true)) {
-            render(view: "create", model: [photoInstance: photoInstance])
-            return
-        }
+		def ext=""
 
 		if(request instanceof MultipartHttpServletRequest) {
 			MultipartHttpServletRequest mpr = (MultipartHttpServletRequest)request;
 			CommonsMultipartFile f = (CommonsMultipartFile) mpr.getFile("photo");
+			
 			if (!f.isEmpty()) {
-				  photoUploadService.uploadFile(f, "${hashTitle}.png", "Photos")
+				def typeImg=f.getContentType()
+				
+				switch(typeImg){
+					case "image/jpeg":
+						ext="jpg"
+						break
+					case "image/png":
+						ext="png"
+						break
+					case "image/gif":
+						ext="gif"
+						break
+				}
+				
+				photoUploadService.uploadFile(f, "${hashTitle}."+ext, "Photos")
 			}
+		}
+		
+		def photoInstance = new Photo(name:"${hashTitle}."+ext, title:params.getAt('title'), dateUploaded:date)
+		if (!photoInstance.save(flush: true)) {
+			render(view: "create", model: [photoInstance: photoInstance])
+			return
 		}
 		
         flash.message = message(code: 'default.created.message', args: [message(code: 'photo.label', default: 'Photo'), photoInstance.id])

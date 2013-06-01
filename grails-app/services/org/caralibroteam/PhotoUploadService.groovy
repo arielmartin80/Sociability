@@ -20,6 +20,7 @@ class PhotoUploadService {
 		println "Connected to $server. $ftp.replyString"
 		ftp.setFileType(FTP.BINARY_FILE_TYPE)
 		ftp.enterLocalPassiveMode()
+		//ftp.cwd(destinationDirectory)	
 		def infile=aufile.inputStream
 		def result=ftp.storeFile(name, infile)
 		infile.close()
