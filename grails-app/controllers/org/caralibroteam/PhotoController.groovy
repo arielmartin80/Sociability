@@ -1,5 +1,6 @@
 package org.caralibroteam
 
+import java.security.MessageDigest
 import org.springframework.dao.DataIntegrityViolationException
 
 import org.springframework.web.multipart.MultipartFile
@@ -24,12 +25,16 @@ class PhotoController {
     def create() {
         [photoInstance: new Photo(params)]
     }
-
+	def generateMD5(String s) {   
+		MessageDigest digest = MessageDigest.getInstance("MD5")
+		digest.update(s.bytes);
+	    new BigInteger(1, digest.digest()).toString(16).padLeft(32, '0')
+	}
     def save() {
 				
 		def date = new Date()
 		//def fDate = date.format('yyyy-MM-dd')
-		def hashTitle = params.getAt('title').hashCode()
+		def hashTitle = generateMD5(params.getAt('title'))
 		def ext=""
 
 		if(request instanceof MultipartHttpServletRequest) {

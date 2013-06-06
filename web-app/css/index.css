@@ -1,0 +1,147 @@
+body{
+	background-color: white;
+}
+
+p{
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+input{
+	margin-top: 12px;
+	margin-left: 14px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	color: #787878;
+}
+
+input[type=button]{
+	color: black;
+}
+
+#btEntrar{
+	width: 65px;
+}
+
+#btCrearCuenta{
+	width: 104px;	
+}
+
+input[type=text]{
+	width: 228px;
+}
+
+div#divContenedor{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -10px;
+}
+
+div#divEncabezado{
+	position: absolute;
+	top: 0px;
+	width: 960px;
+	height: 100px;
+	background-color: #2869FF;
+}
+
+img#imgLogo{
+	position: absolute;
+	top: 8px;
+	left: 150px;
+}
+
+p#pSociability{
+	position: absolute;
+	top: 15px;
+	left: 209px;
+	font-size: 48px;
+	font-family: arial;
+	font-weight: bolder;
+}
+
+div#divContenido{
+	position: absolute;
+	top: 100px;
+	width: 960px;
+	height: 500px;
+	background-image: url("../images/fondo.jpg");
+}
+
+div#divBienvenida{
+	position: absolute;
+	top: 200px;
+	left: 150px;
+	width: 310px;
+	height: 146px;
+	font-family: arial;
+	background-color: orange;
+	border: 1px solid;
+}
+
+form#formLogin{
+	position: absolute;
+	top: 50px;
+	left: 600px;
+	width: 266px;
+	height: 122px;
+	background-color: #EAEAEA;
+	border: 2px solid;
+}
+
+form#formRegistro{
+	position: absolute;
+	top: 200px;
+	left: 600px;
+	width: 266px;
+	height: 264px;
+	background-color: #EAEAEA;
+	border: 2px solid;
+}
+
+div#divTitulo{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 298px; 
+	height: 52px;
+	background-color: white;
+	vertical-align: middle;
+	font-size: 28px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid;
+}
+
+div#divTexto{
+	position: absolute;
+	top: 54px;
+	left: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 298px; 
+	height: 90px;
+	background-color: #EAEAEA;
+	border: 1px solid;
+}
+
+p#pTexto{
+	margin-top: 15px;
+}
+
+input#btEntrar:not([size]){
+	position: absolute;
+	top: 76px;
+	left: 168px;
+}
+
+input#btCrearCuenta:not([size]){
+	position: absolute;
+	top: 216px;
+	left: 126px;
+}
